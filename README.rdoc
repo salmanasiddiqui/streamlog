@@ -1,0 +1,3 @@
+= Streamlog
+
+Streamlog is a Rails Mountable Engine. It streams the logs to the browser. Make sure to authenticate these routes.
