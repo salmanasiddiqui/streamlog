@@ -1,5 +1,34 @@
 <%= h content_for(:title, 'StreamLog') %>
-<section class="mainTitle clearfix">
-  <pre id="log"></pre>
-  <button class="hidden" style="position: fixed; right: 40px; bottom: 40px;" id="resume">Resume</button>
-</section>
+<div id="window">
+  <div id="toolbar">
+    <div class="top">
+      <div id="lights">
+        <div class="light red">
+          <div class="glyph">P</div>
+          <div class="shine"></div>
+          <div class="glow"></div>
+        </div>
+        <div class="light green">
+          <div class="glyph">R</div>
+          <div class="shine"></div>
+          <div class="glow"></div>
+        </div>
+      </div>
+      <div id="title">
+        <div class="folder">
+          <div class="tab"></div>
+          <div class="body"></div>
+        </div>
+        Server Logs
+      </div>
+      <div id="bubble">
+        <div class="shine"></div>
+        <div class="glow"></div>
+      </div>
+    </div>
+  </div>
+  <div id="body">
+    <div class="cursor"></div>
+  </div>
+</div>
+<button class="hidden" id="resume">Resume</button>

@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Streamlog::Engine => "/streamlog"
+  mount Streamlog::Engine => '/streamlog'
 end

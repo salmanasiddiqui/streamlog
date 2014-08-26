@@ -18,7 +18,7 @@ $(document).ready(function () {
     var source = new EventSource('/streamlog/stream');
 
     source.addEventListener('message', function (e) {
-        $("#log").append(JSON.parse(e.data));
+        $("<p>" + JSON.parse(e.data) + "</p>").insertBefore(".cursor");
         if (autoScroll)
             scrollToBottom();
     });

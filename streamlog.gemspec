@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Streamlog::VERSION
   s.authors     = ['Salman Afzal Siddiqui']
   s.email       = ['snnafzal@gmail.com']
-  s.homepage    = 'TODO'
+  s.homepage    = 'https://github.com/salmanasiddiqui/streamlog'
   s.summary     = 'Stream your rails application logs to the browser.'
   s.description = 'Streamlog is an alternate to browserlog. The difference between these two engines is that browserlog uses polling to fetch the logs while streamlog uses streaming.'
   s.license     = 'MIT'
