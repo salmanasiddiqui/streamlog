@@ -3,6 +3,7 @@ require_dependency 'streamlog/application_controller'
 module Streamlog
   class LogsController < ApplicationController
     include ActionController::Live
+    layout 'application' unless Streamlog.engine_layout
 
     def index
     end
