@@ -1,7 +1,11 @@
 <%= h content_for(:title, 'Server Logs') %>
-<div class="window">
-  <div class="body">
-    <div class="cursor"></div>
+<% content_for :head do %>
+    <%= javascript_include_tag 'streamlog/application' %>
+    <%= stylesheet_link_tag 'streamlog/application' %>
+<% end %>
+<div class="streamlog">
+  <div class="streamlog-body">
+    <div class="streamlog-cursor"></div>
   </div>
 </div>
-<button class="hidden" id="resume">Resume</button>
+<button class="streamlog-hidden" id="streamlog-resume">Resume</button>

@@ -1,19 +1,4 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
-.hidden {
-    display: none !important;
-    visibility: hidden !important;
-}
-
-#resume {
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-}
-
-.window {
+.streamlog {
     min-width: 500px;
     min-height: 430px;
     background: #272822;
@@ -22,12 +7,12 @@
     font-size: 13px;
 }
 
-.body {
+.streamlog-body {
     font-family: Andale Mono, monospace;
     padding: 10px;
 }
 
-.body p {
+.streamlog-body p {
     color: #fff;
     padding: 1px 0;
 }
@@ -59,7 +44,7 @@
     }
 }
 
-.cursor {
+.streamlog-cursor {
     background: #63de00;
     display: inline-block;
     width: 11px;
@@ -73,62 +58,73 @@
     -moz-animation-iteration-count: infinite;
 }
 
-.method {
+.streamlog-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+#streamlog-resume {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+}
+
+.log-method {
     color: #C285FF;
 }
 
-.path {
+.log-path {
     color: #85D6FF;
 }
 
-.ip {
+.log-ip {
     color: #585856;
 }
 
-.date {
+.log-date {
     color: #585856;
 }
 
-.controller {
+.log-controller {
     color: #FF0066;
 }
 
-.action {
+.log-action {
     color: #FF0066;
 }
 
-.format {
+.log-format {
     color: #C285FF;
 }
 
-.template-name {
+.log-template-name {
     color: #FFFF66;
 }
 
-.layout-name {
+.log-layout-name {
     color: #C285FF;
 }
 
-.rendering-time {
+.log-rendering-time {
     color: #85D6FF;
 }
 
-.model-load {
+.log-model-load {
     color: #da564a;
 }
 
-.sql-query {
+.log-sql-query {
     color: #585856;
 }
 
-.total-time {
+.log-total-time {
     color: #85D6FF;
 }
 
-.status.success {
+.log-status.success {
     color: #33D633;
 }
 
-.status.error {
+.log-status.error {
     color: red;
 }

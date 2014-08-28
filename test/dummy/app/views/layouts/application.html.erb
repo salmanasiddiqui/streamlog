@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dummy</title>
+  <title><%= yield :title.present? ? :title : 'Dummy' %></title>
+  <%= yield :head %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+asdf
 <%= yield %>
 
 </body>

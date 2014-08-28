@@ -2,12 +2,12 @@ $(document).ready(function () {
     var autoScroll = true;
 
     function startAutoScroll() {
-        $("#resume").addClass('hidden');
+        $("#streamlog-resume").addClass('streamlog-hidden');
         autoScroll = true;
     }
 
     function stopAutoScroll() {
-        $("#resume").removeClass('hidden');
+        $("#streamlog-resume").removeClass('streamlog-hidden');
         autoScroll = false;
     }
 
@@ -18,12 +18,12 @@ $(document).ready(function () {
     var source = new EventSource('/streamlog/stream');
 
     source.addEventListener('message', function (e) {
-        $("<p>" + JSON.parse(e.data) + "</p>").insertBefore(".cursor");
+        $("<p>" + JSON.parse(e.data) + "</p>").insertBefore(".streamlog-cursor");
         if (autoScroll)
             scrollToBottom();
     });
 
-    $("#resume").click(scrollToBottom);
+    $("#streamlog-resume").click(scrollToBottom);
 
     window.onscroll = function () {
         if ($(window).scrollTop() + $(window).height() == $(document).height())

@@ -1,7 +1,7 @@
 module Streamlog
   class LogColorize
-    REXP_REQUEST    = /^Started (?<method>\w+) "(?<path>[\w\/\?\&\=\.]+)" for (?<ip>[\d\.]+) at (?<date>[\w+:\-\s]+)$/
-    REXP_CONTROLLER = /^Processing by (?<controller>[\w\:]+)#(?<action>\w+) as (?<format>\w+)$/
+    REXP_REQUEST    = /^Started (?<method>\w+) "(?<path>[\w\/\?\&\=\.]+)" for (?<ip>[\d\.]+) at (?<date>[\w:\-\+\s]+)$/
+    REXP_CONTROLLER = /^Processing by (?<controller>[\w\:]+)#(?<action>\w+) as (?<format>[\w\/\-\.]+)$/
     REXP_RENDER     = /^\s*Rendered (?<path>.*\/)(?<template_name>\w+\.html\.\w+) \((?<rendering_time>[\d+\.]+ms)\)$/
     REXP_RENDER_WITHIN = /^\s*Rendered (?<path>.*\/)(?<template_name>\w+\.html\.\w+) within (?<layout_name>[\w\d\/]+) ?\((?<rendering_time>[\d+\.]+ms)\)$/
     REXP_COMPLETE   = /^Completed (?<status>\d+\s\w+) in (?<total_time>[\d+\.]+ms) (?<last_bit>.*)$/
@@ -43,50 +43,50 @@ module Streamlog
 
     def colorize_request(line)
       data = regex_parse(line.match(REXP_REQUEST))
-      method = span(data[:method], 'method')
-      path = span(data[:path], 'path')
-      ip = span(data[:ip], 'ip')
-      date = span(data[:date], 'date')
+      method = span(data[:method], 'log-method')
+      path = span(data[:path], 'log-path')
+      ip = span(data[:ip], 'log-ip')
+      date = span(data[:date], 'log-date')
       "Started #{method} \"#{path}\" for #{ip} at #{date}"
     end
 
     def colorize_controller(line)
       data = regex_parse(line.match(REXP_CONTROLLER))
-      controller = span(data[:controller], 'controller')
-      action = span(data[:action], 'action')
-      format = span(data[:format], 'format')
+      controller = span(data[:controller], 'log-controller')
+      action = span(data[:action], 'log-action')
+      format = span(data[:format], 'log-format')
       "Processing by #{controller}##{action} as #{format}"
     end
 
     def colorize_render(line)
       data = regex_parse(line.match(REXP_RENDER))
       path = data[:path]
-      template_name = span(data[:template_name], 'template-name')
-      rendering_time = span(data[:rendering_time], 'rendering-time')
+      template_name = span(data[:template_name], 'log-template-name')
+      rendering_time = span(data[:rendering_time], 'log-rendering-time')
       "#{space}Rendered #{path}#{template_name} (#{rendering_time})"
     end
 
     def colorize_render_within(line)
       data = regex_parse(line.match(REXP_RENDER_WITHIN))
       path = data[:path]
-      layout_name = span(data[:layout_name], 'layout-name')
-      template_name = span(data[:template_name], 'template-name')
-      rendering_time = span(data[:rendering_time], 'rendering-time')
+      layout_name = span(data[:layout_name], 'log-layout-name')
+      template_name = span(data[:template_name], 'log-template-name')
+      rendering_time = span(data[:rendering_time], 'log-rendering-time')
       "#{space}Rendered #{path}#{template_name} within #{layout_name} (#{rendering_time})"
     end
 
     def colorize_sql_query(line)
       data = regex_parse(line.match(REXP_SQL_QUERY))
-      model_load = span(data[:model_load], 'model-load')
-      rendering_time = span(data[:rendering_time], 'rendering-time')
+      model_load = span(data[:model_load], 'log-model-load')
+      rendering_time = span(data[:rendering_time], 'log-rendering-time')
       sql_query = data[:sql_query]
       "#{space}#{model_load} (#{rendering_time}) #{sql_query}"
     end
 
     def colorize_complete(line)
       data = regex_parse(line.match(REXP_COMPLETE))
-      status = span(data[:status], data[:status] =~ /^2/ ? 'status success' : 'status failure')
-      total_time = span(data[:total_time], 'total-time')
+      status = span(data[:status], data[:status] =~ /^2/ ? 'log-status success' : 'log-status failure')
+      total_time = span(data[:total_time], 'log-total-time')
       "Completed #{status} in #{total_time} #{data[:last_bit]}"
     end
 
