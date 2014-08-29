@@ -1,6 +1,6 @@
 # Streamlog
 
-Streamlog is a Rails Mountable Engine. It streams application logs to the browser. It is an alternative to [Browserlog](https://coveralls.io/r/dieb/browserlog).
+Streamlog is a Rails Mountable Engine. It streams rails application log to the browser. It is an alternative to [Browserlog](https://coveralls.io/r/dieb/browserlog).
 Browserlog is based on polling while streamlog streams the log.
 
 ## Installation
@@ -11,7 +11,7 @@ Simply add it to your `Gemfile`
 gem 'streamlog'
 ```
 
-And then mount this rails engine on `config/routes.rb`.
+And then mount this rails engine on `config/routes.rb`
 
 ```ruby
 Rails.application.routes.draw do  
@@ -19,20 +19,28 @@ Rails.application.routes.draw do
 end
 ```
 
-To use your the layout of your app, add the following line in your initializer
+This will make the log available at ``domain/streamlog``. Make sure to authenticate this route.
+
+### Using your app layout
+
+Create ``streamlog.rb`` in ``config/initializers``, and add the following line in it.
 
 ```ruby
 Streamlog.engine_layout = false
 ```
 
-And add the following line in your layout ``head`` tag
+Then add the following line in your layout ``head`` tag
 
 ```ruby
 <% yield :head %>
 ```
 
+This will use your application layout to load streamlog view.
 
-This will make the log available at ``domain/streamlog``. Make sure to authenticate this route.
+## Note
+
+You will need to install passenger with nginx/apache on your local machine to achieve concurrency and be able to test streamlog.
+[GoRails](https://gorails.com/deploy/ubuntu/14.04) is a guide to setup Passenger with nginx.
 
 ## Supported Rails Version
 
