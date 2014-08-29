@@ -11,18 +11,13 @@ Gem::Specification.new do |s|
   s.email       = ['snnafzal@gmail.com']
   s.homepage    = 'https://github.com/salmanasiddiqui/streamlog'
   s.summary     = 'Stream your rails application logs to the browser.'
-  s.description = 'Streamlog is an alternate to browserlog. The difference between these two engines is that browserlog uses polling to fetch the logs while streamlog uses streaming.'
+  s.description = 'Streamlog is an alternative to browserlog. The difference between these two engines is that browserlog uses polling to fetch the logs while streamlog uses streaming.'
   s.license     = 'MIT'
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 4.1.0'
-  s.add_dependency 'jquery-rails'
-  s.add_dependency 'file-tail'
-
-  s.add_development_dependency 'jquery-rails'
-  s.add_development_dependency 'file-tail'
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'puma'
+  s.add_dependency 'rails', '~> 4.1'
+  s.add_dependency 'jquery-rails', '~> 3.0', '>= 3.0.4'
+  s.add_dependency 'file-tail', '~> 1.0', '>= 1.0.12'
 end

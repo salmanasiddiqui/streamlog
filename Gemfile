@@ -12,3 +12,7 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+gem 'jquery-rails', '>= 3.0.4'
+gem 'file-tail', '>= 1.0.12'
+gem 'sqlite3'
