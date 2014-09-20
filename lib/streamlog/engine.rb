@@ -5,7 +5,7 @@ module Streamlog
     isolate_namespace Streamlog
 
     config.middleware.use Rack::ContentLengthWithExclusions, exclude: proc { |env|
-      env['PATH_INFO'] == 'streamlog/stream'
+      env['PATH_INFO'] == '/stream'
     }
     config.preload_frameworks = true
     config.allow_concurrency = true

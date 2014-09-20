@@ -29,13 +29,14 @@ Create ``streamlog.rb`` in ``config/initializers``, and add the following line i
 Streamlog.engine_layout = false
 ```
 
-Then add the following line in your layout ``head`` tag
+Then add the following lines in your application layout ``head`` tag
 
 ```ruby
+<% yield :title %>
 <% yield :head %>
 ```
 
-This will use your application layout to load streamlog view.
+This way, streamlog will use your application layout while rendering streamlog view.
 
 ## Note
 
@@ -44,4 +45,4 @@ You will need to install passenger with nginx/apache on your local machine to ac
 
 ## Supported Rails Version
 
-* Rails >= 4.1
+* Rails >= 4.0
